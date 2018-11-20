@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Here is the list</h1>
+
+  <script>
+
+  function buildList() {
+  //prompt user input for initial item
+  let isDone = false;
+  let shoppingList = [];
+  let addItem
+
+  //prompt user to add items to list
+  while (!isDone) {
+    // if array is empty we ask initial prompt otherwise use standard prompt
+    if (shoppingList.length < 1) {
+      addItem = prompt("Welcome to your shopping list. Add type in an item and hit return to add it to your list. When you are finished, simply type 'done'.");
+    } else {
+      //prompt user to continue adding items
+      addItem = prompt("Great! Keep adding items to the list. When you have finished you can type 'done'.");
+    }
+
+    while ( !isNaN(addItem) && addItem != null ) {
+      addItem = "";
+      addItem = prompt("I'm sorry. You must add at least 1 item to your list. Items can contain numbers, but cannot be only numbers.")
+    }
+
+    if (addItem.toUpperCase() != "DONE") {
+      shoppingList.push(addItem)
+    }
+
+    console.log(shoppingList);
+    //exit if user types 'done'
+    if (addItem.toUpperCase() === 'DONE' || addItem === null) {
+      isDone = true;
+      return shoppingList;
+      break
+    }
+  }
+}
+
+buildList()
+
+    </script>
+</body>
+</html>
